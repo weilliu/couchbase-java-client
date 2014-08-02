@@ -51,7 +51,7 @@ public class SSLTest{
   	*
   	* @throws Exception
   	*/
-	@Test
+	@Ignore@Test
 	public void ClientCertificateUnavailable(){
 		File client_cacert_rename = new File(keyStoreFile.concat("_rename"));
 		
@@ -100,7 +100,7 @@ public class SSLTest{
   	*
   	* @throws Exception
   	*/
-	@Test
+	@Ignore@Test
 	public void ClientCertificateExpiry(){
 		File client_cacert_copy= new File(keyStoreFile.concat("_cp"));
 		
@@ -163,7 +163,7 @@ public class SSLTest{
   	*
   	* @throws Exception
   	*/
-	@Test
+	@Ignore@Test
 	public void ClientCertificateRefresh(){ 
 		File client_cacert_copy= new File(keyStoreFile.concat("_cp"));
 		
@@ -227,7 +227,7 @@ public class SSLTest{
   	*
   	* @throws Exception
   	*/
-	@Test
+	@Ignore@Test
 	public void ServerRegenerateCertificate(){	
 		String server_username = conf.getString("com.couchbase.client.bootstrap.server_username");
 		String server_password = conf.getString("com.couchbase.client.bootstrap.server_password");

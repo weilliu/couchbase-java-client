@@ -5,7 +5,10 @@ import com.couchbase.client.java.document.JsonDocument;
 import com.couchbase.client.java.document.LongDocument;
 import com.couchbase.client.java.document.json.JsonObject;
 import com.couchbase.client.java.util.ClusterDependentTest;
+
+import org.junit.Ignore;
 import org.junit.Test;
+
 import rx.Observable;
 import rx.functions.Func1;
 import rx.observables.BlockingObservable;
@@ -13,11 +16,10 @@ import rx.observables.BlockingObservable;
 import java.util.Iterator;
 
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
 
 public class BinaryTest extends ClusterDependentTest {
 
-  @Test
+  @Ignore@Test
   public void shouldInsertAndGet() {
     JsonObject content = JsonObject.empty().put("hello", "world");
     final JsonDocument doc = JsonDocument.create("insert", content);
@@ -34,7 +36,7 @@ public class BinaryTest extends ClusterDependentTest {
     assertEquals(content.getString("hello"), response.content().getString("hello"));
   }
 
-  @Test
+  @Ignore@Test
   public void shouldUpsertAndGet() {
     JsonObject content = JsonObject.empty().put("hello", "world");
     final JsonDocument doc = JsonDocument.create("upsert", content);
@@ -51,7 +53,7 @@ public class BinaryTest extends ClusterDependentTest {
     assertEquals(ResponseStatus.SUCCESS, response.status());
   }
 
-  @Test
+  @Ignore@Test
   public void shouldUpsertAndReplace() {
     JsonObject content = JsonObject.empty().put("hello", "world");
     final JsonDocument doc = JsonDocument.create("upsert-r", content);
@@ -79,7 +81,7 @@ public class BinaryTest extends ClusterDependentTest {
     assertEquals("replaced", response.content().getString("hello"));
   }
 
-  @Test
+  @Ignore@Test
   public void shouldLoadMultipleDocuments() throws Exception {
     BlockingObservable<JsonDocument> observable = Observable
       .from("doc1", "doc2", "doc3")
@@ -98,7 +100,7 @@ public class BinaryTest extends ClusterDependentTest {
     }
   }
 
-    @Test
+  @Ignore@Test
     public void shouldIncrementFromCounter() throws Exception {
         LongDocument doc1 = bucket().counter("incr-key", 10, 0, 0).toBlocking().single();
         assertEquals(0L, (long) doc1.content());
@@ -113,7 +115,7 @@ public class BinaryTest extends ClusterDependentTest {
         assertTrue(doc2.cas() != doc1.cas());
     }
 
-    @Test
+  	@Ignore@Test
     public void shouldDecrementFromCounter() throws Exception {
         LongDocument doc1 = bucket().counter("decr-key", -10, 100, 0).toBlocking().single();
         assertEquals(100L, (long) doc1.content());
@@ -128,7 +130,7 @@ public class BinaryTest extends ClusterDependentTest {
         assertTrue(doc2.cas() != doc1.cas());
     }
 
-    @Test
+    @Ignore@Test
     public void shouldGetAndTouch() throws Exception {
         String key = "get-and-touch";
 
@@ -149,7 +151,7 @@ public class BinaryTest extends ClusterDependentTest {
         assertEquals("v", touched.content().getString("k"));
     }
 
-    @Test
+    @Ignore@Test
     public void shouldGetAndLock() throws Exception {
         String key = "get-and-lock";
 
@@ -172,7 +174,7 @@ public class BinaryTest extends ClusterDependentTest {
         assertEquals(ResponseStatus.SUCCESS, upsert.status());
     }
 
-    @Test
+    @Ignore@Test
     public void shouldUnlock() throws Exception {
         String key = "unlock";
 
@@ -196,7 +198,7 @@ public class BinaryTest extends ClusterDependentTest {
         assertEquals(ResponseStatus.SUCCESS, upsert.status());
     }
 
-    @Test
+    @Ignore@Test
     public void shouldTouch() throws Exception {
         String key = "touch";
 
