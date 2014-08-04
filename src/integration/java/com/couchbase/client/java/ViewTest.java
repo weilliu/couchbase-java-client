@@ -55,14 +55,14 @@ public class ViewTest extends ClusterDependentTest {
   @Test
   public void shouldViewStaleFalse() throws Exception{
     	
-	  	String jdk_version = System.getProperty("java.version");
-	  	if (!jdk_version.contains("1.8")){
-	  		System.err.println("Needs Java 8 to run shouldViewStaleFalse test");
-	  		System.exit(1);
-	  	}
-	  	else{
-	  		System.out.println("Java Version:"+ System.getProperty("java.version"));	
-	  	}
+	String jdk_version = System.getProperty("java.version");
+	if (!jdk_version.contains("1.8")){
+	  	System.err.println("Needs Java 8 to run shouldViewStaleFalse test");
+	  	System.exit(1);
+	}
+	else{
+	 	System.out.println("Java Version:"+ System.getProperty("java.version"));	
+	}
 	  	
     	
     	//Upsert single line jsonObject to the document id (StaleFalseSync)
@@ -114,7 +114,7 @@ public class ViewTest extends ClusterDependentTest {
 
 
   
-  	@Test
+ 	@Test
 	public void shouldViewSyncStaleFalse() throws Exception{
   	
 	  	String jdk_version = System.getProperty("java.version");
